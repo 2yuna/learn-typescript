@@ -1,31 +1,26 @@
-// 2.10 진정한 타입스크립트의 시작! Union 타입
+/**
+ * 2.11 필수 타입! Discriminated Union 🚀
+ *
+ * Discriminated Union
+ * Union 타입에 차별화되는, 이름이 동일한 타입을 둠으로써 간편하게 구분할 수 있는 것
+ */
 {
-  /**
-   * Union Types: OR
-   */
-  type Direction = "left" | "right" | "up" | "down";
-  function move(direction: Direction) {
-    console.log(direction);
-  }
-  move("down");
-
-  type TileSize = 8 | 16 | 32;
-  const tile: TileSize = 16;
-
   // function: login -> success, fail
   type SuccessState = {
+    result: "success";
     response: {
       body: string;
     };
   };
   type FailState = {
+    result: "fail";
     reason: string;
   };
   type LoginState = SuccessState | FailState;
 
-  //   function login(id: string, password: string): Promise<LoginState> {
   function login(id: string, password: string): LoginState {
     return {
+      result: "success",
       response: {
         body: "logged in!",
       },
@@ -36,7 +31,9 @@
   // success -> 🎉 body
   // fail -> 😭 reason
   function printLoginState(state: LoginState) {
-    if ("response" in state) {
+    state.result; // success or fail
+
+    if (state.result === "success") {
       console.log(`🎉 ${state.response.body}`);
     } else {
       console.log(`😭 ${state.reason}`);
