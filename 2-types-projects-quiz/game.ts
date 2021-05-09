@@ -1,12 +1,41 @@
 /**
  * Let's make a game 🕹
  */
+type Command = "up" | "down" | "left" | "right";
+type Axis = {
+  x: number;
+  y: number;
+};
+
+const position: Axis = {
+  x: 0,
+  y: 0,
+};
+function move(command: Command) {
+  switch (command) {
+    case "up":
+      ++position.y;
+      break;
+    case "down":
+      --position.y;
+      break;
+    case "left":
+      --position.x;
+      break;
+    case "right":
+      ++position.x;
+      break;
+    default:
+      throw new Error("unknown command");
+  }
+}
+
 console.log(position); // { x: 0, y: 0}
-move('up');
+move("up");
 console.log(position); // { x: 0, y: 1}
-move('down');
+move("down");
 console.log(position); // { x: 0, y: 0}
-move('left');
+move("left");
 console.log(position); // { x: -1, y: 0}
-move('right');
+move("right");
 console.log(position); // { x: 0, y: 0}
