@@ -29,6 +29,37 @@
   let person: null; // 💩
   let person2: string | null;
 
-  //unknown
+  //unknown 💩
   let notSure: unknown = 0;
+  notSure = "he";
+  notSure = true;
+
+  // any 💩
+  let anything: any = 0;
+  anything = "Hello";
+
+  // void
+  function print(): void {
+    console.log("hello");
+    return;
+  }
+  let unuable: void = undefined; // 💩
+
+  // never
+  /**
+   * 예상치 못한 핸들링 할 수 없는 오류를 맞이했을 때
+   * 함수에서 절대 리턴되지 않을 경우에 그것을 명시하기 위해서 쓰임
+   */
+  function throwError(message: string): never {
+    // message -> server (log)
+    throw new Error(message);
+    while (true) {}
+  }
+  let nerverEnding: never; // 💩
+
+  // object
+  let obj: object; // 💩
+  function acceptSomeObject(obj: object) {}
+  acceptSomeObject({ name: "ellie" });
+  acceptSomeObject({ animal: "dog" });
 }
