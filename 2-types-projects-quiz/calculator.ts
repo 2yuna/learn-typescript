@@ -1,21 +1,21 @@
 /**
  * Let's make a calculator 🧮
  */
-type CalType = "add" | "substract" | "multiply" | "divide" | "remainder";
-function calculate(type: CalType, num1: number, num2: number): number {
-  switch (type) {
+type Command = "add" | "substract" | "multiply" | "divide" | "remainder";
+function calculate(command: Command, a: number, b: number): number {
+  switch (command) {
     case "add":
-      return num1 + num2;
+      return a + b;
     case "substract":
-      return num1 - num2;
+      return a - b;
     case "multiply":
-      return num1 * num2;
+      return a * b;
     case "divide":
-      return num1 / num2;
+      return a / b;
     case "remainder":
-      return num1 % num2;
+      return a % b;
     default:
-      throw new Error("type을 명시해주세요.");
+      throw new Error("unknown command");
   }
 }
 
