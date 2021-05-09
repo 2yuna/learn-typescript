@@ -1,5 +1,4 @@
 {
-  /*
   // Javascript 💩
   function jsAdd(num1, num2) {
     return num1 + num2;
@@ -30,7 +29,6 @@
     });
   }
 
-
   // JavaScript ✨ => TypeScript
   // Optional parameter
   function printName(firstName: string, lastName?: string) {
@@ -46,7 +44,6 @@
     console.log(message);
   }
   printMessage();
-  */
 
   // Rest parameter
   function addNumber(...numbers: number[]): number {
