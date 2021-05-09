@@ -3,6 +3,8 @@
  *
  * Discriminated Union
  * Union 타입에 차별화되는, 이름이 동일한 타입을 둠으로써 간편하게 구분할 수 있는 것
+ *
+ * ✏️ 어떤 케이스든 공통적인 프로퍼티를 가지고 있음으로써 구분하기 쉽게 만들어준다.
  */
 {
   // function: login -> success, fail
