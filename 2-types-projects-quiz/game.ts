@@ -1,29 +1,21 @@
 /**
  * Let's make a game 🕹
  */
-type Command = "up" | "down" | "left" | "right";
-type Axis = {
-  x: number;
-  y: number;
-};
-
-const position: Axis = {
-  x: 0,
-  y: 0,
-};
-function move(command: Command) {
-  switch (command) {
+type Direction = "up" | "down" | "left" | "right";
+const position = { x: 0, y: 0 };
+function move(direction: Direction) {
+  switch (direction) {
     case "up":
-      ++position.y;
+      position.y += 1;
       break;
     case "down":
-      --position.y;
+      position.y -= 1;
       break;
     case "left":
-      --position.x;
+      position.x -= 1;
       break;
     case "right":
-      ++position.x;
+      position.x += 1;
       break;
     default:
       throw new Error("unknown command");
